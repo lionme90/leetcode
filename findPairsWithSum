@@ -1,0 +1,54 @@
+
+collection of numbers,
+find the matching pair that == sum
+
+[1,2,3,9] SUM 8
+[1,2,4,4] SUM 8
+
+clarify the result
+[1,2,3,9] SUM 8 No
+[1,2,4,4] SUM 8 Yes
+
+clarify the input
+- array of values
+- sorted
+- repetable values
+- negative and positive
+
+solution 1 compare everything with everything.
+for loop with inner for loop, want tru elements of array, sum them and print the suo of pairs == SUM
+
+disadvantages time compexity is n^2
+
+solution 2  we could use a binary search tofin for each element a pair that  ==  SUM - element using binary search, that will be n log N
+
+solution 3 we could compare a pairs of elements, starting form first and last index of an array,
+if sum of pair is > than SUM,
+	move right index to left
+if sum if pairs < SUM
+  move left index to right
+if sum of == sum
+	print
+	move left index to right
+
+time complexity O(n)
+
+
+findPairsWithSum(data:int[], sum:int) : -> bool
+	left_index = 0
+	right_index = len(data) - 1
+	while (left_index < right_index){
+		pair_sum = data[left_index] + data[right_index]
+		if pair_sum == sum:
+		  return true
+		if pair_sum > sum:
+			left_index++
+		else
+			right_index--
+
+	returun false
+
+No longer sorted
+
+
+bool findPairsWithSum(data:int[], sum:int) :
